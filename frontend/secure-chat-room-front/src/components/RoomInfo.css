@@ -1,0 +1,99 @@
+.room-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: 10px clamp(12px, 3vw, 20px);
+  gap: 10px;
+  flex-shrink: 0;
+  /* Prevent the header from becoming too tall on mobile */
+  flex-wrap: wrap;
+  min-height: 56px;
+}
+
+/* ── Left side: room id + status dot ── */
+.room-info__left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0; /* allow text truncation */
+}
+
+.room-id {
+  font-size: clamp(12px, 2vw, 14px);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: clamp(120px, 30vw, 260px);
+}
+
+.room-id .label {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.status-dot.connected {
+  background: #22c55e;
+  box-shadow: 0 0 6px #22c55e88;
+}
+
+.status-dot.disconnected {
+  background: var(--color-danger);
+}
+
+/* ── Right side: nickname, copy, leave ── */
+.room-info__right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.nickname-badge {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 4px 10px;
+  white-space: nowrap;
+  /* Hide on very small screens to save space */
+}
+
+.room-info .btn {
+  padding: 6px 12px;
+  font-size: 12px;
+  min-height: 36px;
+}
+
+/* ── Mobile: hide copy text label, show icon only ── */
+@media (max-width: 480px) {
+  .copy-label {
+    display: none;
+  }
+
+  .nickname-badge {
+    display: none;
+  }
+
+  .room-id {
+    max-width: 140px;
+  }
+}
+
+@media (max-width: 360px) {
+  .room-info {
+    padding: 8px 10px;
+    gap: 6px;
+  }
+}

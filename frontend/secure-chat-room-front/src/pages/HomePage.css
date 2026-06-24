@@ -1,0 +1,126 @@
+.home-page {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(28px, 6vw, 64px) clamp(16px, 5vw, 32px) clamp(24px, 4vw, 48px);
+  position: relative;
+}
+
+/* Theme toggle pinned top-right */
+.home-topbar {
+  position: absolute;
+  top: clamp(12px, 2vw, 20px);
+  right: clamp(12px, 3vw, 24px);
+}
+
+/* ── Header ── */
+.home-header {
+  text-align: center;
+  margin-bottom: clamp(28px, 5vw, 52px);
+  width: 100%;
+  max-width: 600px;
+}
+
+.home-header h1 {
+  font-size: clamp(1.6rem, 5vw, 2.6rem);
+  font-weight: 700;
+  margin: 0 0 10px;
+  color: #fff;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.home-header p {
+  color: var(--color-text-muted);
+  font-size: clamp(13px, 2vw, 15px);
+  margin: 0;
+}
+
+/* ── Cards grid ── */
+.home-cards {
+  display: grid;
+  /* Two columns on ≥640px, single column on mobile */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: clamp(16px, 3vw, 28px);
+  width: 100%;
+  max-width: 860px;
+}
+
+/* ── Card ── */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: clamp(20px, 4vw, 32px);
+  display: flex;
+  flex-direction: column;
+  /* Smooth hover lift */
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 24px rgba(99, 102, 241, 0.12);
+}
+
+.card-icon {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.card h2 {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 700;
+  color: var(--color-card-h);
+  margin: 0 0 8px;
+}
+
+.card > p {
+  color: var(--color-text-muted);
+  font-size: clamp(13px, 1.8vw, 14px);
+  margin: 0 0 24px;
+  line-height: 1.6;
+}
+
+.card > .btn {
+  width: 100%;
+  margin-top: auto;
+}
+
+/* ── Join form ── */
+.join-form {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.join-form label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.join-form input {
+  margin-top: 4px;
+}
+
+.join-form .btn {
+  margin-top: 18px;
+  width: 100%;
+}
+
+/* ── Mobile tweaks ── */
+@media (max-width: 480px) {
+  .home-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .card {
+    border-radius: 12px;
+  }
+}

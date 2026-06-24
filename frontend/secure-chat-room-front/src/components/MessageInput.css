@@ -1,0 +1,70 @@
+.message-input {
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(6px, 1.5vw, 10px);
+  padding: clamp(10px, 2vw, 14px) clamp(12px, 3vw, 20px);
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  flex-shrink: 0;
+  padding-bottom: calc(clamp(10px, 2vw, 14px) + env(safe-area-inset-bottom, 0px));
+  position: relative;
+}
+
+/* ── Emoji trigger ── */
+.emoji-trigger-wrap {
+  position: relative;
+  flex-shrink: 0;
+  align-self: flex-end;
+}
+
+.emoji-trigger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 6px;
+  border-radius: 8px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.emoji-trigger:hover {
+  background: var(--color-surface-2);
+  transform: scale(1.1);
+}
+
+.emoji-trigger:active {
+  transform: scale(0.95);
+}
+
+/* ── Textarea ── */
+.message-input__field {
+  flex: 1;
+  max-height: min(120px, 30vh);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+  line-height: 1.5;
+  font-size: max(16px, 1em);
+}
+
+/* ── Send button ── */
+.message-input__send {
+  flex-shrink: 0;
+  padding: 10px clamp(14px, 3vw, 22px);
+  align-self: flex-end;
+}
+
+@media (max-width: 360px) {
+  .send-label {
+    display: none;
+  }
+  .message-input__send {
+    padding: 10px 14px;
+  }
+}

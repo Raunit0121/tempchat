@@ -1,0 +1,9 @@
+.chat-page {
+  display: flex;
+  flex-direction: column;
+  /* Use dvh so mobile browser chrome is handled correctly */
+  height: 100dvh;
+  max-height: 100dvh;
+  overflow: hidden;
+  background: var(--color-bg);
+}
